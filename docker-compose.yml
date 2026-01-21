@@ -1,0 +1,112 @@
+services:
+  postgres:
+    image: postgres:14
+    container_name: seafood-landings-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-airflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-airflow}
+      # Postgres auto-creates ONE DB on first boot; use AIRFLOW_DB for Airflow metadata.
+      POSTGRES_DB: ${AIRFLOW_DB:-airflow}
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Init scripts run ONLY on a fresh volume
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-airflow} -d ${AIRFLOW_DB:-airflow}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  airflow-init:
+    build:
+      context: ./airflow
+    container_name: seafood-landings-airflow-init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-airflow}:${POSTGRES_PASSWORD:-airflow}@postgres:5432/${AIRFLOW_DB:-airflow}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+
+      # Shared secrets across ALL Airflow components
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
+
+      # Admin user (used by airflow-init only)
+      AIRFLOW_ADMIN_USER: ${AIRFLOW_ADMIN_USER:-admin}
+      AIRFLOW_ADMIN_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD:-admin}
+      AIRFLOW_ADMIN_FIRSTNAME: ${AIRFLOW_ADMIN_FIRSTNAME:-Admin}
+      AIRFLOW_ADMIN_LASTNAME: ${AIRFLOW_ADMIN_LASTNAME:-User}
+      AIRFLOW_ADMIN_EMAIL: ${AIRFLOW_ADMIN_EMAIL:-admin@example.com}
+
+      # Convenience for DAGs/dbt later (project DB)
+      PROJECT_DB: ${PROJECT_DB:-seafood_landings}
+    user: "${AIRFLOW_UID:-50000}:0"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
+    entrypoint: /bin/bash
+    command: -lc "airflow db migrate && airflow users create --username \"$AIRFLOW_ADMIN_USER\" --password \"$AIRFLOW_ADMIN_PASSWORD\" --firstname \"$AIRFLOW_ADMIN_FIRSTNAME\" --lastname \"$AIRFLOW_ADMIN_LASTNAME\" --role Admin --email \"$AIRFLOW_ADMIN_EMAIL\" || true"
+    restart: "no"
+
+  airflow-webserver:
+    build:
+      context: ./airflow
+    container_name: seafood-landings-airflow-webserver
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-airflow}:${POSTGRES_PASSWORD:-airflow}@postgres:5432/${AIRFLOW_DB:-airflow}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
+
+      PROJECT_DB: ${PROJECT_DB:-seafood_landings}
+    user: "${AIRFLOW_UID:-50000}:0"
+    ports:
+      - "8881:8080"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
+    command: webserver
+    restart: unless-stopped
+
+  airflow-scheduler:
+    build:
+      context: ./airflow
+    container_name: seafood-landings-airflow-scheduler
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-airflow}:${POSTGRES_PASSWORD:-airflow}@postgres:5432/${AIRFLOW_DB:-airflow}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
+
+      PROJECT_DB: ${PROJECT_DB:-seafood_landings}
+    user: "${AIRFLOW_UID:-50000}:0"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
+    command: scheduler
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

@@ -1,0 +1,380 @@
+[0m10:41:55.386527 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f8038f7c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f8024d3f40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f8024d3ee0>]}
+
+
+============================== 10:41:55.389389 | 4e73c180-9b5f-4a40-93fd-cf34e59ff249 ==============================
+[0m10:41:55.389389 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:41:55.390111 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'empty': 'None', 'printer_width': '80', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'write_json': 'True', 'version_check': 'True', 'log_cache_events': 'False', 'warn_error': 'None', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'partial_parse': 'True', 'profiles_dir': '/home/ricardo/.dbt/', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'target_path': 'None', 'use_colors': 'True', 'log_format': 'default', 'quiet': 'False', 'log_path': 'logs'}
+[0m10:41:55.401857 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:41:55.402517 [info ] [MainThread]: python version: 3.10.12
+[0m10:41:55.403342 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:41:55.403726 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:41:55.447061 [info ] [MainThread]: Using profiles dir at /home/ricardo/.dbt/
+[0m10:41:55.447842 [info ] [MainThread]: Using profiles.yml file at /home/ricardo/.dbt/profiles.yml
+[0m10:41:55.448480 [info ] [MainThread]: Using dbt_project.yml file at /home/ricardo/projects/seafood-landings/dbt_project.yml
+[0m10:41:55.449086 [info ] [MainThread]: Configuration:
+[0m10:41:55.449607 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m10:41:55.450088 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m10:41:55.450563 [info ] [MainThread]: Required dependencies:
+[0m10:41:55.451004 [debug] [MainThread]: Executing "git --help"
+[0m10:41:55.455278 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m10:41:55.455810 [debug] [MainThread]: STDERR: "b''"
+[0m10:41:55.456142 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m10:41:55.456578 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m10:41:55.457084 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m10:41:55.457452 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "spacex_v2", target "dev" invalid: ['dbname'] is not of type 'string'
+
+
+[0m10:41:55.457887 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/ricardo/projects/seafood-landings/dbt_project.yml> not found
+
+[0m10:41:55.459266 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.13852869, "process_in_blocks": "8", "process_kernel_time": 0.088105, "process_mem_max_rss": "99736", "process_out_blocks": "16", "process_user_time": 1.321585}
+[0m10:41:55.460833 [debug] [MainThread]: Command `dbt debug` failed at 10:41:55.460634 after 0.14 seconds
+[0m10:41:55.461373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f8038f7c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f8024d3e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f8024d93f0>]}
+[0m10:41:55.462064 [debug] [MainThread]: Flushing usage events
+[0m10:41:55.912359 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:42:36.553261 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3fe4a5fc10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3fe3903eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3fe3903e50>]}
+
+
+============================== 10:42:36.556121 | 8f3737e8-1d52-412c-a7a5-77d14440f852 ==============================
+[0m10:42:36.556121 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:42:36.556633 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'indirect_selection': 'eager', 'empty': 'None', 'fail_fast': 'False', 'cache_selected_only': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'version_check': 'True', 'debug': 'False', 'warn_error': 'None', 'write_json': 'True', 'log_path': 'logs', 'target_path': 'None', 'printer_width': '80', 'static_parser': 'True', 'use_colors': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'profiles_dir': '/home/ricardo/.dbt/', 'log_format': 'default', 'invocation_command': 'dbt debug'}
+[0m10:42:36.564488 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:42:36.564962 [info ] [MainThread]: python version: 3.10.12
+[0m10:42:36.565909 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:42:36.566743 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:42:36.609060 [info ] [MainThread]: Using profiles dir at /home/ricardo/.dbt/
+[0m10:42:36.609640 [info ] [MainThread]: Using profiles.yml file at /home/ricardo/.dbt/profiles.yml
+[0m10:42:36.609990 [info ] [MainThread]: Using dbt_project.yml file at /home/ricardo/projects/seafood-landings/dbt_project.yml
+[0m10:42:36.610614 [info ] [MainThread]: Configuration:
+[0m10:42:36.611417 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m10:42:36.611773 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m10:42:36.612261 [info ] [MainThread]: Required dependencies:
+[0m10:42:36.612811 [debug] [MainThread]: Executing "git --help"
+[0m10:42:36.615275 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m10:42:36.615774 [debug] [MainThread]: STDERR: "b''"
+[0m10:42:36.616052 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m10:42:36.616387 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m10:42:36.616760 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m10:42:36.617050 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "spacex_v2", target "dev" invalid: ['dbname'] is not of type 'string'
+
+
+[0m10:42:36.617310 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/ricardo/projects/seafood-landings/dbt_project.yml> not found
+
+[0m10:42:36.618197 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.120239876, "process_in_blocks": "0", "process_kernel_time": 0.066733, "process_mem_max_rss": "99804", "process_out_blocks": "16", "process_user_time": 1.317979}
+[0m10:42:36.618688 [debug] [MainThread]: Command `dbt debug` failed at 10:42:36.618581 after 0.12 seconds
+[0m10:42:36.619112 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3fe4a5fc10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3fe3903e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3fe390a050>]}
+[0m10:42:36.619505 [debug] [MainThread]: Flushing usage events
+[0m10:42:37.099496 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:47:38.619196 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72535813fcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725356ff7910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725356ff7880>]}
+
+
+============================== 10:47:38.621847 | 9de2b83d-ef80-42e8-8d99-da8518125de4 ==============================
+[0m10:47:38.621847 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:47:38.622344 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt debug --project-dir ./dbt --profiles-dir ./dbt', 'printer_width': '80', 'debug': 'False', 'write_json': 'True', 'version_check': 'True', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'introspect': 'True', 'quiet': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'no_print': 'None', 'log_format': 'default', 'target_path': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'empty': 'None', 'profiles_dir': './dbt', 'static_parser': 'True', 'log_path': 'logs', 'use_experimental_parser': 'False'}
+[0m10:47:38.631301 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:47:38.631806 [info ] [MainThread]: python version: 3.10.12
+[0m10:47:38.632253 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:47:38.632781 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:47:38.638995 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'POSTGRES_USER'
+[0m10:47:38.640140 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.079832196, "process_in_blocks": "0", "process_kernel_time": 0.096154, "process_mem_max_rss": "94720", "process_out_blocks": "16", "process_user_time": 1.350347}
+[0m10:47:38.640775 [debug] [MainThread]: Command `dbt debug` failed at 10:47:38.640648 after 0.08 seconds
+[0m10:47:38.641135 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72535813fcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725356fe6740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725357087790>]}
+[0m10:47:38.641488 [debug] [MainThread]: Flushing usage events
+[0m10:47:39.098546 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:48:01.579732 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7191f886bc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7191f770ef50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7191f770efb0>]}
+
+
+============================== 10:48:01.582443 | 5b8d245e-8e7c-47ef-a83c-214eed4fb477 ==============================
+[0m10:48:01.582443 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:48:01.582963 [debug] [MainThread]: running dbt with arguments {'profiles_dir': './dbt', 'quiet': 'False', 'target_path': 'None', 'write_json': 'True', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'log_format': 'default', 'use_colors': 'True', 'static_parser': 'True', 'introspect': 'True', 'printer_width': '80', 'fail_fast': 'False', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'version_check': 'True', 'log_path': 'logs', 'invocation_command': 'dbt debug --project-dir ./dbt --profiles-dir ./dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'debug': 'False'}
+[0m10:48:01.591486 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:48:01.592014 [info ] [MainThread]: python version: 3.10.12
+[0m10:48:01.592487 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:48:01.593210 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:48:01.600417 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'POSTGRES_USER'
+[0m10:48:01.601725 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.07798497, "process_in_blocks": "0", "process_kernel_time": 0.070934, "process_mem_max_rss": "94612", "process_out_blocks": "8", "process_user_time": 1.331067}
+[0m10:48:01.602271 [debug] [MainThread]: Command `dbt debug` failed at 10:48:01.602164 after 0.08 seconds
+[0m10:48:01.602610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7191f886bc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7191f7f4c4c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7191f77b35e0>]}
+[0m10:48:01.602989 [debug] [MainThread]: Flushing usage events
+[0m10:48:02.012664 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:48:14.941973 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725f1fd3bc70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725f1ebdbf70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725f1ebdbf10>]}
+
+
+============================== 10:48:14.944657 | 0b2357e3-a245-4eac-ac51-be7ad0167ea4 ==============================
+[0m10:48:14.944657 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:48:14.945943 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'empty': 'None', 'invocation_command': 'dbt debug --project-dir ./dbt --profiles-dir ./dbt', 'log_format': 'default', 'cache_selected_only': 'False', 'quiet': 'False', 'version_check': 'True', 'warn_error': 'None', 'debug': 'False', 'partial_parse': 'True', 'no_print': 'None', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': './dbt', 'write_json': 'True', 'static_parser': 'True', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'use_colors': 'True', 'log_path': 'logs'}
+[0m10:48:14.954789 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:48:14.955289 [info ] [MainThread]: python version: 3.10.12
+[0m10:48:14.955603 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:48:14.955876 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:48:14.961330 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'POSTGRES_USER'
+[0m10:48:14.962588 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.07792459, "process_in_blocks": "0", "process_kernel_time": 0.100478, "process_mem_max_rss": "94608", "process_out_blocks": "0", "process_user_time": 1.29785}
+[0m10:48:14.963114 [debug] [MainThread]: Command `dbt debug` failed at 10:48:14.963013 after 0.08 seconds
+[0m10:48:14.963442 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725f1fd3bc70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725f1ebe1480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x725f1ec8b5e0>]}
+[0m10:48:14.963789 [debug] [MainThread]: Flushing usage events
+[0m10:48:15.355566 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:48:22.250309 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a686103fc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a685fedff70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a685fedff10>]}
+
+
+============================== 10:48:22.253039 | e4f90898-c3c5-4a78-8c72-e5f69320299b ==============================
+[0m10:48:22.253039 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:48:22.253568 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'introspect': 'True', 'debug': 'False', 'write_json': 'True', 'invocation_command': 'dbt debug --project-dir ./dbt --profiles-dir ./dbt', 'warn_error': 'None', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'log_path': 'logs', 'profiles_dir': './dbt', 'log_format': 'default', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'indirect_selection': 'eager', 'use_colors': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'no_print': 'None', 'version_check': 'True', 'empty': 'None', 'use_experimental_parser': 'False'}
+[0m10:48:22.261910 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:48:22.262537 [info ] [MainThread]: python version: 3.10.12
+[0m10:48:22.263185 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:48:22.263542 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:48:22.270437 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'POSTGRES_USER'
+[0m10:48:22.271775 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.07896355, "process_in_blocks": "0", "process_kernel_time": 0.096084, "process_mem_max_rss": "94548", "process_out_blocks": "8", "process_user_time": 1.282523}
+[0m10:48:22.272278 [debug] [MainThread]: Command `dbt debug` failed at 10:48:22.272178 after 0.08 seconds
+[0m10:48:22.272630 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a686103fc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a686091c4c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a685ff8f5e0>]}
+[0m10:48:22.273000 [debug] [MainThread]: Flushing usage events
+[0m10:48:22.675911 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:49:05.260454 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f96a43fc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f9692dff70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f9692dff10>]}
+
+
+============================== 10:49:05.263253 | 84a7059d-332b-41c1-bae7-a2649a27f7a3 ==============================
+[0m10:49:05.263253 [info ] [MainThread]: Running with dbt=1.11.2
+[0m10:49:05.272856 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'invocation_command': 'dbt debug --project-dir ./dbt --profiles-dir ./dbt', 'debug': 'False', 'log_format': 'default', 'use_experimental_parser': 'False', 'static_parser': 'True', 'use_colors': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'partial_parse': 'True', 'log_path': 'logs', 'empty': 'None', 'profiles_dir': './dbt', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'printer_width': '80', 'cache_selected_only': 'False', 'target_path': 'None', 'fail_fast': 'False', 'warn_error': 'None', 'write_json': 'True'}
+[0m10:49:05.282336 [info ] [MainThread]: dbt version: 1.11.2
+[0m10:49:05.282983 [info ] [MainThread]: python version: 3.10.12
+[0m10:49:05.283444 [info ] [MainThread]: python path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/bin/python3
+[0m10:49:05.283868 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m10:49:05.293816 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'POSTGRES_USER'
+[0m10:49:05.295259 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.09980652, "process_in_blocks": "0", "process_kernel_time": 0.108537, "process_mem_max_rss": "94636", "process_out_blocks": "16", "process_user_time": 1.314978}
+[0m10:49:05.295795 [debug] [MainThread]: Command `dbt debug` failed at 10:49:05.295687 after 0.10 seconds
+[0m10:49:05.296164 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f96a43fc40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f969d1c4c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75f96938f5e0>]}
+[0m10:49:05.296531 [debug] [MainThread]: Flushing usage events
+[0m10:49:05.976037 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:55:59.946689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x757c5695b2e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x757c547efe20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x757c547efdc0>]}
+
+
+============================== 18:55:59.951611 | 04427323-99f7-425a-b533-3e0f037af0fe ==============================
+[0m18:55:59.951611 [info ] [MainThread]: Running with dbt=1.8.2
+[0m18:55:59.952152 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': './dbt', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt init seafood_landings_dw --profiles-dir ./dbt', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:55:59.957757 [debug] [MainThread]: Starter project path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m18:55:59.961069 [info ] [MainThread]: 
+Your new dbt project "seafood_landings_dw" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:55:59.961396 [info ] [MainThread]: Setting up your profile.
+[0m18:56:53.998861 [error] [MainThread]: Encountered an error:
+[Errno 2] No such file or directory: 'dbt/profiles.yml'
+[0m18:56:54.000660 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/main.py", line 470, in init
+    results = task.run()
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 347, in run
+    self.setup_profile(profile_name)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 263, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 180, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 167, in create_profile_from_profile_template
+    self.write_profile(profile, profile_name)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 157, in write_profile
+    with open(profiles_filepath, "w") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'dbt/profiles.yml'
+
+[0m18:56:54.002575 [debug] [MainThread]: Resource report: {"command_name": "init", "command_wall_clock_time": 54.023296, "process_user_time": 0.890197, "process_kernel_time": 0.104257, "process_mem_max_rss": "93016", "process_in_blocks": "368", "process_out_blocks": "80", "command_success": false}
+[0m18:56:54.003358 [debug] [MainThread]: Command `dbt init` failed at 18:56:54.003236 after 54.02 seconds
+[0m18:56:54.003778 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x757c5695b2e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x757c53ef6e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x757c53ef7340>]}
+[0m18:56:54.004153 [debug] [MainThread]: Flushing usage events
+[0m18:57:52.255838 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7764b7c73280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7764b5afbdc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7764b5afbd60>]}
+
+
+============================== 18:57:52.257736 | cfbad721-91e3-4109-ada6-95bb47a570ef ==============================
+[0m18:57:52.257736 [info ] [MainThread]: Running with dbt=1.8.2
+[0m18:57:52.258120 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': './dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt init seafood_landings_dw --profiles-dir ./dbt', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m18:57:52.263337 [info ] [MainThread]: A project called seafood_landings_dw already exists here.
+[0m18:57:52.264231 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.04464487, "process_user_time": 0.751105, "process_kernel_time": 0.099881, "process_mem_max_rss": "87888", "process_out_blocks": "8", "process_in_blocks": "0"}
+[0m18:57:52.264648 [debug] [MainThread]: Command `dbt init` succeeded at 18:57:52.264565 after 0.05 seconds
+[0m18:57:52.264933 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7764b7c73280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7764b5afbf10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7764b5afbe20>]}
+[0m18:57:52.265228 [debug] [MainThread]: Flushing usage events
+[0m18:58:30.672849 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70da8ec632b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70da8caf3d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70da8caf3d30>]}
+
+
+============================== 18:58:30.675006 | a9bde761-cf89-4bdb-88b7-ba4d31829755 ==============================
+[0m18:58:30.675006 [info ] [MainThread]: Running with dbt=1.8.2
+[0m18:58:30.675859 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': './dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt init seafood_landings_dw --profiles-dir ./dbt', 'send_anonymous_usage_stats': 'True'}
+[0m18:58:30.682532 [info ] [MainThread]: A project called seafood_landings_dw already exists here.
+[0m18:58:30.683408 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.04571133, "process_user_time": 0.796749, "process_kernel_time": 0.06406, "process_mem_max_rss": "87764", "process_out_blocks": "8", "process_in_blocks": "0"}
+[0m18:58:30.683804 [debug] [MainThread]: Command `dbt init` succeeded at 18:58:30.683724 after 0.05 seconds
+[0m18:58:30.684135 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70da8ec632b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70da8caf3ee0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70da8caf3df0>]}
+[0m18:58:30.684427 [debug] [MainThread]: Flushing usage events
+[0m19:07:41.465195 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7282a647b010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7282a4311f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7282a4311f30>]}
+
+
+============================== 19:07:41.470122 | 95413685-6a83-46d9-b866-1e02bb6bae95 ==============================
+[0m19:07:41.470122 [info ] [MainThread]: Running with dbt=1.8.2
+[0m19:07:41.470931 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': './dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt init seafood_landings_dw --profiles-dir ./dbt', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m19:07:41.477526 [debug] [MainThread]: Starter project path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m19:07:41.480874 [info ] [MainThread]: 
+Your new dbt project "seafood_landings_dw" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:07:41.481480 [info ] [MainThread]: Setting up your profile.
+[0m19:07:43.297783 [error] [MainThread]: Encountered an error:
+
+[0m19:07:43.311280 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/main.py", line 470, in init
+    results = task.run()
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 347, in run
+    self.setup_profile(profile_name)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 262, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 243, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/click/termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/click/termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m19:07:43.312353 [debug] [MainThread]: Resource report: {"command_name": "init", "command_wall_clock_time": 1.8888532, "process_user_time": 0.864927, "process_kernel_time": 0.063773, "process_mem_max_rss": "88068", "process_in_blocks": "168", "process_out_blocks": "72", "command_success": false}
+[0m19:07:43.312766 [debug] [MainThread]: Command `dbt init` failed at 19:07:43.312687 after 1.89 seconds
+[0m19:07:43.313025 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7282a647b010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7282a43120e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7282a42e9270>]}
+[0m19:07:43.313272 [debug] [MainThread]: Flushing usage events
+[0m19:51:20.582794 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aadad46b280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aadab30a230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aadab30a1d0>]}
+
+
+============================== 19:51:20.587333 | 2bd71426-c5d3-40d6-8fac-2fb1e71ccb88 ==============================
+[0m19:51:20.587333 [info ] [MainThread]: Running with dbt=1.8.2
+[0m19:51:20.587838 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/home/ricardo/.dbt/', 'log_path': 'logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt init seafood_landings', 'send_anonymous_usage_stats': 'True'}
+[0m19:51:20.603844 [debug] [MainThread]: Starter project path: /home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m19:51:20.612143 [info ] [MainThread]: 
+Your new dbt project "seafood_landings" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:51:20.612641 [info ] [MainThread]: Setting up your profile.
+[0m19:51:24.843008 [error] [MainThread]: Encountered an error:
+
+[0m19:51:24.857096 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/cli/main.py", line 470, in init
+    results = task.run()
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 347, in run
+    self.setup_profile(profile_name)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 262, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/dbt/task/init.py", line 243, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/click/termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+  File "/home/ricardo/projects/seafood-landings/dbt-postgres-venv/lib/python3.10/site-packages/click/termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m19:51:24.858870 [debug] [MainThread]: Resource report: {"command_name": "init", "command_wall_clock_time": 4.315051, "process_user_time": 0.927199, "process_kernel_time": 0.102149, "process_mem_max_rss": "87716", "process_in_blocks": "44472", "process_out_blocks": "72", "command_success": false}
+[0m19:51:24.859323 [debug] [MainThread]: Command `dbt init` failed at 19:51:24.859248 after 4.32 seconds
+[0m19:51:24.859588 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aadad46b280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aadab30a560>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aadab4caa10>]}
+[0m19:51:24.859842 [debug] [MainThread]: Flushing usage events
+[0m07:31:29.582661 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7debf6b57250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7debf49fa200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7debf49fa1a0>]}
+
+
+============================== 07:31:29.586912 | 128e2d3e-895b-48f6-9b7a-20949194f11d ==============================
+[0m07:31:29.586912 [info ] [MainThread]: Running with dbt=1.8.2
+[0m07:31:29.587749 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/ricardo/.dbt/', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt clean', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m07:31:29.588676 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ricardo/projects/seafood-landings/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m07:31:29.589564 [debug] [MainThread]: Resource report: {"command_name": "clean", "command_wall_clock_time": 0.08536859, "process_user_time": 1.172331, "process_kernel_time": 0.0564, "process_mem_max_rss": "87680", "process_in_blocks": "288", "process_out_blocks": "16", "command_success": false}
+[0m07:31:29.590028 [debug] [MainThread]: Command `dbt clean` failed at 07:31:29.589937 after 0.09 seconds
+[0m07:31:29.590382 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7debf6b57250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7debf49fa4d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7debf49fae30>]}
+[0m07:31:29.590729 [debug] [MainThread]: Flushing usage events
+[0m07:31:31.415066 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ca1c9267220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ca1c71062f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ca1c7106290>]}
+
+
+============================== 07:31:31.417575 | da724395-90fd-461f-b17b-4e297b1a2479 ==============================
+[0m07:31:31.417575 [info ] [MainThread]: Running with dbt=1.8.2
+[0m07:31:31.418088 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/ricardo/.dbt/', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m07:31:31.418523 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ricardo/projects/seafood-landings/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m07:31:31.419275 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.063778825, "process_user_time": 1.110273, "process_kernel_time": 0.051919, "process_mem_max_rss": "87552", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m07:31:31.419703 [debug] [MainThread]: Command `dbt run` failed at 07:31:31.419624 after 0.06 seconds
+[0m07:31:31.420003 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ca1c9267220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ca1c7106380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ca1c71062c0>]}
+[0m07:31:31.420321 [debug] [MainThread]: Flushing usage events
+[0m07:31:33.373959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e92e4763280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e92e260a320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e92e260a2c0>]}
+
+
+============================== 07:31:33.376704 | 8e25c5e0-a56f-462e-b68d-fb2ff0163cf0 ==============================
+[0m07:31:33.376704 [info ] [MainThread]: Running with dbt=1.8.2
+[0m07:31:33.377277 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/home/ricardo/.dbt/', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt test', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m07:31:33.377784 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ricardo/projects/seafood-landings/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m07:31:33.378576 [debug] [MainThread]: Resource report: {"command_name": "test", "command_wall_clock_time": 0.054540846, "process_user_time": 1.199095, "process_kernel_time": 0.099235, "process_mem_max_rss": "87572", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m07:31:33.379012 [debug] [MainThread]: Command `dbt test` failed at 07:31:33.378924 after 0.06 seconds
+[0m07:31:33.379382 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e92e4763280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e92e260a3b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e92e260a2f0>]}
+[0m07:31:33.379718 [debug] [MainThread]: Flushing usage events

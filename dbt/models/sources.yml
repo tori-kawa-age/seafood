@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw_noaa
+    database: seafood_landings
+    schema: raw_noaa
+    tables:
+      - name: landings_raw
+
+  - name: raw_fda
+    database: seafood_landings
+    schema: raw_fda
+    tables:
+      - name: enforcement_raw
+
