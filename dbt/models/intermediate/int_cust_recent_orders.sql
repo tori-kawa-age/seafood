@@ -3,6 +3,8 @@ select distinct
   c.customercode,
   c.name,
   o.invoicedate,
+--   rank() over (
+--   row_number () over (
   dense_rank() over (
     partition by c.customercode
     order by o.invoicedate desc

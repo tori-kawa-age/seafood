@@ -123,3 +123,6 @@ In a production environment:
 - dbt
 - Power BI
 - SQL
+
+cat scripts/rename_sms_tables.sql | docker compose exec -T postgres psql -U airflow -d seafood_landings
+python scripts/load_sms_dataset.py
