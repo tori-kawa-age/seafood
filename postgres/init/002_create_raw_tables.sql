@@ -1,4 +1,4 @@
-\connect seafood_landings
+\connect seafood
 
 CREATE TABLE IF NOT EXISTS raw_noaa.landings_raw (
   source TEXT NOT NULL DEFAULT 'noaa',

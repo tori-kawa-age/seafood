@@ -8,7 +8,7 @@ EXCEL_PATH = os.path.join("data", "Datasets.xlsx")
 DB = dict(
     host=os.getenv("PGHOST", "localhost"),
     port=int(os.getenv("PGPORT", "5435")),
-    dbname=os.getenv("PGDATABASE", "seafood_landings"),
+    dbname=os.getenv("PGDATABASE", "seafood"),
     user=os.getenv("PGUSER", "airflow"),
     password=os.getenv("PGPASSWORD", "airflow"),
 )

@@ -1,4 +1,4 @@
-\connect seafood_landings
+\connect seafood
 
 CREATE SCHEMA IF NOT EXISTS raw_noaa;
 CREATE SCHEMA IF NOT EXISTS raw_fda;

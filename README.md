@@ -1,4 +1,4 @@
-# Seafood Landings — BI & Analytics Engineering Demo
+# Seafood — BI & Analytics Engineering Demo
 
 ## Overview
 This project demonstrates a **modern BI workflow** using a realistic sales dataset provided for interview preparation. The goal is to show how raw operational data can be transformed into a **clean analytics layer** and consumed in **Power BI** for business decision-making.
@@ -124,5 +124,5 @@ In a production environment:
 - Power BI
 - SQL
 
-cat scripts/rename_sms_tables.sql | docker compose exec -T postgres psql -U airflow -d seafood_landings
+cat scripts/rename_sms_tables.sql | docker compose exec -T postgres psql -U airflow -d seafood
 python scripts/load_sms_dataset.py

@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:14
-    container_name: seafood-landings-postgres
+    container_name: seafood-postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-airflow}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-airflow}
@@ -22,12 +22,20 @@ services:
   airflow-init:
     build:
       context: .
-    container_name: seafood-landings-airflow-init
+    container_name: seafood-airflow-init
     depends_on:
       postgres:
         condition: service_healthy
     env_file: .env
     environment:
+
+      PGHOST: postgres
+      PGDATABASE: seafood
+      # Add these to ensure the script has the credentials it needs
+      PGUSER: ${POSTGRES_USER:-airflow}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-airflow}
+      PGPORT: 5432
+
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-airflow}:${POSTGRES_PASSWORD:-airflow}@postgres:5432/${AIRFLOW_DB:-airflow}
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
@@ -45,20 +53,26 @@ services:
       AIRFLOW_ADMIN_EMAIL: ${AIRFLOW_ADMIN_EMAIL:-admin@example.com}
 
       # Convenience for DAGs/dbt later (project DB)
-      PROJECT_DB: ${PROJECT_DB:-seafood_landings}
+      PROJECT_DB: ${PROJECT_DB:-seafood}
     user: "${AIRFLOW_UID:-50000}:0"
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./dbt:/opt/airflow/dbt
+      - ./scripts:/opt/airflow/scripts
+      - ./data:/opt/airflow/data
     entrypoint: /bin/bash
-    command: -lc "airflow db migrate && airflow users create --username \"$AIRFLOW_ADMIN_USER\" --password \"$AIRFLOW_ADMIN_PASSWORD\" --firstname \"$AIRFLOW_ADMIN_FIRSTNAME\" --lastname \"$AIRFLOW_ADMIN_LASTNAME\" --role Admin --email \"$AIRFLOW_ADMIN_EMAIL\" || true"
+    command: >
+      -lc "python /opt/airflow/scripts/load_sms_dataset.py &&
+      airflow db migrate &&
+      airflow users create --username \"$AIRFLOW_ADMIN_USER\" --password \"$AIRFLOW_ADMIN_PASSWORD\" --firstname \"$AIRFLOW_ADMIN_FIRSTNAME\" --lastname \"$AIRFLOW_ADMIN_LASTNAME\" --role Admin --email \"$AIRFLOW_ADMIN_EMAIL\" || true"
+    #command: -lc "airflow db migrate && airflow users create --username \"$AIRFLOW_ADMIN_USER\" --password \"$AIRFLOW_ADMIN_PASSWORD\" --firstname \"$AIRFLOW_ADMIN_FIRSTNAME\" --lastname \"$AIRFLOW_ADMIN_LASTNAME\" --role Admin --email \"$AIRFLOW_ADMIN_EMAIL\" || true"
     restart: "no"
 
   airflow-webserver:
     build:
 #      context: ./airflow
       context: .
-    container_name: seafood-landings-airflow-webserver
+    container_name: seafood-airflow-webserver
     depends_on:
       postgres:
         condition: service_healthy
@@ -75,7 +89,7 @@ services:
       AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
       AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
 
-      PROJECT_DB: ${PROJECT_DB:-seafood_landings}
+      PROJECT_DB: ${PROJECT_DB:-seafood}
     user: "${AIRFLOW_UID:-50000}:0"
     ports:
       - "8881:8080"
@@ -89,7 +103,7 @@ services:
     build:
 #      context: ./airflow
       context: .
-    container_name: seafood-landings-airflow-scheduler
+    container_name: seafood-airflow-scheduler
     depends_on:
       postgres:
         condition: service_healthy
@@ -105,7 +119,7 @@ services:
       AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
       AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
 
-      PROJECT_DB: ${PROJECT_DB:-seafood_landings}
+      PROJECT_DB: ${PROJECT_DB:-seafood}
     user: "${AIRFLOW_UID:-50000}:0"
     volumes:
       - ./airflow/dags:/opt/airflow/dags

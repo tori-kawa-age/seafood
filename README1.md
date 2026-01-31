@@ -1,5 +1,5 @@
-# seafood-landings
-Data ingestion for seafood landings
+# seafood
+Data ingestion for seafood
 
 ## SMS Interview Dataset (Not Included)
 
